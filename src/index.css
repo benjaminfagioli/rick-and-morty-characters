@@ -1,0 +1,68 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+nav{
+  position: fixed !important;
+  width: 100%;
+}
+.card{
+  & img{
+    max-height: 240px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+a{
+  text-decoration: none !important;
+  cursor: pointer;
+}
+body{
+  position: relative;
+}
+main{
+  min-height: 100vh;
+
+  padding:80px 0 190px 0 ;
+}
+footer{
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: #323232;
+  & img{
+    max-width: 100%;
+    border-radius: 50%;
+    max-height: 150px;
+  }
+  & a {
+    font-size: 23px;
+    text-wrap: wrap;
+    color: gray;
+    transition: .6s;
+    display: inline-block;
+    inline-size: 100%;
+    overflow-wrap: break-word;
+  
+  }
+  & a:hover{
+    color: white;
+  }
+  & div{
+    margin: 15px 0;
+  }
+}
+
+@media screen and (width <= 576px) {
+  main{
+    padding-bottom: 400px;
+  }
+  footer a{
+    font-size: 18px;
+  }
+}
