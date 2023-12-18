@@ -1,23 +1,39 @@
 import Pagination from 'react-bootstrap/Pagination';
 
-const Paginacion = () => {
+const Paginacion = ({i, setParams, params, totalPages}) => {
+  const handleClick = (number) =>{
+    params.set('page', number)
+    setParams(params)
+  }
   return (
     <Pagination>
-      <Pagination.First />
-      <Pagination.Prev />
-      <Pagination.Item>{1}</Pagination.Item>
-      <Pagination.Ellipsis />
+    {i>1
+    ? <>
+        <Pagination.First onClick={()=>handleClick(1)}/>
+        {/* <Pagination.Prev onClick={()=>handleClick(i-1)}/> */}
+        <Pagination.Item onClick={()=>handleClick(i-1)}>{i-1}</Pagination.Item> 
+      </>
+    : <>
+        <Pagination.First disabled />
+        {/* <Pagination.Prev disabled /> */}
+        <Pagination.Item disabled>{i-1}</Pagination.Item>
+      </>
+    }
 
-      <Pagination.Item>{10}</Pagination.Item>
-      <Pagination.Item>{11}</Pagination.Item>
-      <Pagination.Item active>{12}</Pagination.Item>
-      <Pagination.Item>{13}</Pagination.Item>
-      <Pagination.Item disabled>{14}</Pagination.Item>
+      <Pagination.Item active>{i}</Pagination.Item>
 
-      <Pagination.Ellipsis />
-      <Pagination.Item>{20}</Pagination.Item>
-      <Pagination.Next />
-      <Pagination.Last />
+    {i<totalPages
+    ? <>
+        <Pagination.Item onClick={()=>handleClick(i+1)} >{i+1}</Pagination.Item>
+        {/* <Pagination.Next onClick={()=>handleClick(i+1)} /> */}
+        <Pagination.Last onClick={()=>handleClick(totalPages)}/>
+      </>
+    : <>
+        <Pagination.Item disabled >{i+1}</Pagination.Item>
+        {/* <Pagination.Next disabled /> */}
+        <Pagination.Last disabled/>
+      </>
+    }
     </Pagination>
   );
 }

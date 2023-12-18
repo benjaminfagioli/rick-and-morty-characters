@@ -9,6 +9,20 @@
 nav{
   position: fixed !important;
   width: 100%;
+  height: 76px;
+  animation: navFadeIn linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 230px;
+  & a{
+    color: white;
+  }
+}
+@keyframes navFadeIn {
+  to{
+    height: 95px;
+    font-size: 20px;
+    padding: 0 10%;
+}
 }
 .card{
   & img{
@@ -57,6 +71,15 @@ footer{
     margin: 15px 0;
   }
 }
+.active>.page-link{
+  color: white !important;
+  background-color: #212529 !important;
+  border: 1px solid black !important;
+}
+.page-link{
+  color: #212529 !important;
+}
+
 
 @media screen and (width <= 576px) {
   main{
